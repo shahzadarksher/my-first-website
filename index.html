@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Explore Warshigoom — Warshigoom Travel Agency</title>
+  <meta name="description" content="Discover Warshigoom: tailored tours, cultural experiences, and trusted travel services in your hometown." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Warshigoom Travels</h1>
+      <nav>
+        <ul class="nav">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#tours">Tours</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="bookNow" class="btn-primary">Book a Tour</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h2>Welcome to Warshigoom</h2>
+          <p>Explore the hidden gems, cultural spots, and nature trails of Warshigoom with local guides who know the town best.</p>
+          <div class="hero-actions">
+            <a href="#tours" class="btn-secondary">View Tours</a>
+            <a href="#contact" class="btn-outline">Get in Touch</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/hero.jpg" alt="Scenic view of Warshigoom" />
+        </div>
+      </div>
+    </section>
+
+    <section id="tours" class="container tours-section">
+      <h3>Featured Tours</h3>
+      <p class="lead">Handpicked experiences around Warshigoom</p>
+      <div class="tours-grid">
+        <article class="tour-card">
+          <img src="assets/tour1.jpg" alt="Heritage walk in Warshigoom" />
+          <h4>Heritage Walk</h4>
+          <p>2–3 hours guided walk visiting historical sites and local markets.</p>
+          <div class="card-footer">
+            <span class="price">From $15</span>
+            <button class="btn-primary btn-small book-inline" data-tour="Heritage Walk">Book</button>
+          </div>
+        </article>
+
+        <article class="tour-card">
+          <img src="assets/tour2.jpg" alt="Nature trail near Warshigoom" />
+          <h4>Nature Trail</h4>
+          <p>Half-day hike through scenic trails and viewpoints, perfect for families.</p>
+          <div class="card-footer">
+            <span class="price">From $20</span>
+            <button class="btn-primary btn-small book-inline" data-tour="Nature Trail">Book</button>
+          </div>
+        </article>
+
+        <article class="tour-card">
+          <img src="assets/tour3.jpg" alt="Cultural experience in town" />
+          <h4>Cultural Experience</h4>
+          <p>Local food tasting, music, and a chance to meet artisans from Warshigoom.</p>
+          <div class="card-footer">
+            <span class="price">From $25</span>
+            <button class="btn-primary btn-small book-inline" data-tour="Cultural Experience">Book</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="container about-section">
+      <h3>About Us</h3>
+      <p>Warshigoom Travels is a community-focused travel service founded by locals. Our goal is to show visitors the real Warshigoom while supporting local businesses and artisans.</p>
+      <ul class="features">
+        <li>Local guides</li>
+        <li>Small groups or private tours</li>
+        <li>Customizable itineraries</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="container contact-section">
+      <h3>Contact & Booking</h3>
+      <p>Have questions or want a custom plan? Send us a message or use the booking form.</p>
+
+      <form id="contactForm" class="contact-form" novalidate>
+        <label>
+          Your name
+          <input type="text" name="name" id="name" required />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" id="email" required />
+        </label>
+
+        <label>
+          Phone (optional)
+          <input type="tel" name="phone" id="phone" />
+        </label>
+
+        <label>
+          Message or special requests
+          <textarea name="message" id="message" rows="4"></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Send Message</button>
+          <button type="button" id="clearForm" class="btn-outline">Clear</button>
+        </div>
+      </form>
+
+      <div class="contact-details">
+        <p><strong>Email:</strong> info@warshigoom-travels.example</p>
+        <p><strong>Phone:</strong> +123 456 7890</p>
+        <p><strong>Address:</strong> Main Street, Warshigoom</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Warshigoom Travels — Made with love in Warshigoom</p>
+      <p class="small">Follow us: <a href="#">Facebook</a> · <a href="#">Instagram</a></p>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="closeModal" class="modal-close" aria-label="Close">×</button>
+      <h3 id="modalTitle">Book a Tour</h3>
+      <form id="bookingForm" class="booking-form" novalidate>
+        <label>
+          Tour
+          <input type="text" id="bookingTour" name="tour" readonly />
+        </label>
+        <label>
+          Name
+          <input type="text" id="bookingName" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" id="bookingEmail" name="email" required />
+        </label>
+        <label>
+          Date
+          <input type="date" id="bookingDate" name="date" required />
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Confirm Booking</button>
+          <button type="button" id="cancelBooking" class="btn-outline">Cancel</button>
+        </div>
+      </form>
+      <div id="bookingMessage" class="booking-message" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
