@@ -31,6 +31,8 @@ body{margin:0;background:var(--bg);line-height:1.5}
 
 /* Tours */
 .tours-section{padding:2rem 0}
+.tours-toolbar{display:flex;gap:0.5rem;align-items:center;margin-top:0.5rem}
+.tours-toolbar input[type="search"]{flex:1;padding:.5rem;border-radius:6px;border:1px solid #e6e9ee}
 .tours-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
 .tour-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(2,6,23,0.05);display:flex;flex-direction:column}
 .tour-card img{width:100%;height:150px;object-fit:cover}
@@ -48,6 +50,16 @@ body{margin:0;background:var(--bg);line-height:1.5}
 .contact-form label, .booking-form label{display:block;margin-bottom:0.6rem}
 .contact-form input, .contact-form textarea, .booking-form input{width:100%;padding:0.6rem;border:1px solid #e6e9ee;border-radius:8px}
 
+.caption{font-size:.9rem;color:var(--muted);margin:0.5rem 1rem}
+
+/* Testimonials */
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.testimonial{background:#fff;padding:1rem;border-radius:10px;box-shadow:0 1px 6px rgba(2,6,23,0.05)}
+
+/* FAQ */
+.faq{margin-top:1rem}
+.faq-item{background:#fff;padding:0.8rem;border-radius:8px;margin-bottom:0.6rem}
+
 /* Footer */
 .site-footer{padding:1.2rem 0;background:#fff;border-top:1px solid #e6e9ee;margin-top:2rem}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:1rem}
@@ -64,4 +76,6 @@ body{margin:0;background:var(--bg);line-height:1.5}
   .hero-content{flex-direction:column}
   .nav{display:none}
   .header-inner{gap:.6rem}
+  .nav.open{display:flex;flex-direction:column;background:#fff;padding:0.8rem;border-radius:8px;position:absolute;top:64px;right:16px;box-shadow:0 6px 20px rgba(2,6,23,0.08)}
 }
+

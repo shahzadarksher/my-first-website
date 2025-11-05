@@ -1,36 +1,51 @@
-# Warshigoom Travels — Starter Website
+<<<<<<< HEAD
+````markdown
+# Travel Starter Website — Generic
 
-This repository contains a small static website template for a travel agency focused on Warshigoom.
+This repository contains a small static website starter template for a travel or tours business. It's intentionally minimal so you can customize it quickly.
 
 Files:
-- `index.html` — homepage with hero, tours, contact & booking modal.
+- `index.html` — homepage with hero, tours, testimonials, FAQ, contact & booking modal.
 - `styles.css` — responsive styles.
-- `script.js` — lightweight JavaScript for modal and forms.
-- `assets/` — put your images here (hero.jpg, tour1.jpg, tour2.jpg, tour3.jpg, etc.)
+- `script.js` — lightweight JavaScript for modal, forms, search, and small client-side features.
+- `assets/` — put your images here (hero.svg, tour1.svg, tour2.svg, tour3.svg, or replace with JPG/PNG photos).
 
 How to use
 1. Clone the repo locally.
-2. Replace images in `assets/` with real photos from Warshigoom.
-3. Edit text content in `index.html` to include real descriptions, contact details, and prices.
-4. If you want server-side bookings, replace the placeholder form handlers in `script.js` with fetch() calls to your backend or a service (e.g., Netlify Functions, Google Forms, or a booking API).
+2. Replace images in `assets/` with your photos.
+3. Edit text content in `index.html` to include your descriptions, contact details, and prices.
+4. For server-side bookings, wire the booking form in `script.js` to your backend (fetch() or form POST).
 
-Deploy on GitHub Pages
-1. Push changes to the `main` branch.
-2. In your repository, go to Settings → Pages.
-3. Choose the branch (main) and root (/) as source, then Save.
-4. Your site will be published at `https://<your-username>.github.io/<repo-name>/` (may take a minute).
+Preview locally
+```bash
+# from the project root
+python3 -m http.server 8000
+# open http://localhost:8000/index.html
+# my-first-website
 
-Next improvements (suggestions)
-- Add real booking backend or integrate with a third-party booking provider.
-- Add multilingual support if you want to support local languages for Warshigoom.
-- Improve SEO meta tags and Open Graph images.
-- Add accessibility checks and alt text for all images.
-- Add Google Analytics or privacy-friendly analytics.
+Small travel/tours starter website with an optional minimal Node/Express backend for development.
 
-If you want, I can:
-- Customize the design colors and logo for Warshigoom.
-- Add more sections (prices, testimonials, FAQ).
-- Hook a simple serverless booking form (Netlify Functions).
-- Create a GitHub Pages-ready workflow and push these files to your repo for you.
+Included files
+- `index.html` — homepage (hero, tours, testimonials, FAQ, contact & booking modal)
+- `styles.css` — styling
+- `script.js` — client JS (modal, forms, localStorage fallback, search)
+- `server.js` — optional local API (bookings & contacts)
+- `data/db.json` — persisted JSON storage used by the local server (lowdb)
 
-Tell me which next step you want (design preferences, pages to add, or if you'd like me to push these files into your repo).
+Quick start (local)
+1. Install dependencies: `npm install`
+2. Start the server (serves static site + API): `node server.js`
+3. Open: `http://localhost:3000` (or use `python3 -m http.server` to preview static files only)
+
+Notes
+- The client will attempt to POST bookings and contact messages to `http://localhost:3000` and falls back to localStorage if the server isn't reachable.
+- The local server uses a JSON file for persistence (lowdb). For production, prefer a proper database.
+- There's a simple `admin.html` UI to list saved bookings/contacts (dev-only).
+
+Image attributions
+- Noh Bridge, Yasin Valley — Wikimedia Commons
+- Yasin Valley — visitgilgitbaltistan.gov.pk
+- Yasin Valley (2) — realpakistan.com.pk
+
+If you want help polishing content, deploying, or switching persistence to SQLite, tell me and I'll implement it.
+

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Explore — TravelCo</title>
+  <meta name="description" content="Discover curated local tours, cultural experiences, and trusted travel services." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">TravelCo</h1>
+      <nav>
+        <ul class="nav">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#tours">Tours</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="bookNow" class="btn-primary">Book a Tour</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h2>Welcome to yasin</h2>
+          <p>Explore the hidden gems, cultural spots, and nature trails of yasin with local guides who know the town best.</p>
+          <div class="hero-actions">
+            <a href="#tours" class="btn-secondary">View Tours</a>
+            <a href="#contact" class="btn-outline">Get in Touch</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/hero.svg" alt="Scenic view of yasin" />
+        </div>
+      </div>
+    </section>
+
+    <section id="tours" class="container tours-section">
+      <h3>Featured Tours</h3>
+      <p class="lead">Handpicked experiences — local & small-group tours</p>
+      <div class="tours-toolbar">
+        <input id="tourSearch" type="search" placeholder="Search tours (e.g. Heritage, Nature)" aria-label="Search tours" />
+        <select id="priceFilter" aria-label="Filter by max price">
+          <option value="">Any price</option>
+          <option value="15">Up to $15</option>
+          <option value="20">Up to $20</option>
+          <option value="25">Up to $25</option>
+        </select>
+      </div>
+      <div class="tours-grid" id="toursGrid">
+        <article class="tour-card" data-title="Heritage Walk" data-price="15">
+          <img src="assets/tour1.svg" alt="Heritage walk" />
+          <h4>Heritage Walk</h4>
+          <p>2–3 hours guided walk visiting historical sites and local markets.</p>
+          <div class="card-footer">
+            <span class="price">From $15</span>
+            <button class="btn-primary btn-small book-inline" data-tour="Heritage Walk">Book</button>
+          </div>
+        </article>
+
+        <article class="tour-card" data-title="Nature Trail" data-price="20">
+          <img src="assets/tour2.svg" alt="Nature trail" />
+          <h4>Nature Trail</h4>
+          <p>Half-day hike through scenic trails and viewpoints, perfect for families.</p>
+          <div class="card-footer">
+            <span class="price">From $20</span>
+            <button class="btn-primary btn-small book-inline" data-tour="Nature Trail">Book</button>
+          </div>
+        </article>
+
+        <article class="tour-card" data-title="Cultural Experience" data-price="25">
+          <img src="assets/tour3.svg" alt="Cultural experience" />
+          <h4>Cultural Experience</h4>
+          <p>Local food tasting, music, and a chance to meet artisans.</p>
+          <div class="card-footer">
+            <span class="price">From $25</span>
+            <button class="btn-primary btn-small book-inline" data-tour="Cultural Experience">Book</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="container about-section">
+      <h3>About Us</h3>
+      <p>TravelCo is a local-first travel service connecting visitors with curated experiences. We focus on small groups, authentic encounters, and supporting local businesses.</p>
+      <ul class="features">
+        <li>Experienced local guides</li>
+        <li>Small group & private options</li>
+        <li>Customizable itineraries</li>
+      </ul>
+    </section>
+
+    <section id="testimonials" class="container">
+      <h3>Testimonials</h3>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p>Fantastic guide and great pace — we learned so much about the town's history.</p>
+          <div class="who">— Alex P.</div>
+        </div>
+        <div class="testimonial">
+          <p>Well organized, friendly staff, and beautiful scenery. Highly recommended.</p>
+          <div class="who">— Maria L.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="container">
+      <h3>FAQ</h3>
+      <div class="faq">
+        <details class="faq-item"><summary>What is included in a tour?</summary><div>Most tours include a local guide and transportation for certain excursions. See each tour's details for specifics.</div></details>
+        <details class="faq-item"><summary>How do I cancel or reschedule?</summary><div>Cancellations vary by tour; contact us at least 48 hours before your date for a full refund in most cases.</div></details>
+      </div>
+    </section>
+
+    <section id="contact" class="container contact-section">
+      <h3>Contact & Booking</h3>
+      <p>Have questions or want a custom plan? Send us a message or use the booking form.</p>
+
+      <form id="contactForm" class="contact-form" novalidate>
+        <label>
+          Your name
+          <input type="text" name="name" id="name" required />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" id="email" required />
+        </label>
+
+        <label>
+          Phone (optional)
+          <input type="tel" name="phone" id="phone" />
+        </label>
+
+        <label>
+          Message or special requests
+          <textarea name="message" id="message" rows="4"></textarea>
+        </label>
+
+        <!-- Honeypot field to reduce spam (hidden from users) -->
+        <label style="display:none;">
+          Website
+          <input type="text" id="website" name="website" autocomplete="off" tabindex="-1" />
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Send Message</button>
+          <button type="button" id="clearForm" class="btn-outline">Clear</button>
+        </div>
+      </form>
+
+      <div class="contact-details">
+        <p><strong>Email:</strong> info@yasin-travels.example</p>
+        <p><strong>Phone:</strong> +123 456 7890</p>
+        <p><strong>Address:</strong> Main Street, yasin</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> yasin Travels — Made with love in yasin</p>
+      <p class="small">Follow us: <a href="#">Facebook</a> · <a href="#">Instagram</a></p>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="closeModal" class="modal-close" aria-label="Close">×</button>
+      <h3 id="modalTitle">Book a Tour</h3>
+      <form id="bookingForm" class="booking-form" novalidate>
+        <label>
+          Tour
+          <input type="text" id="bookingTour" name="tour" readonly />
+        </label>
+        <label>
+          Name
+          <input type="text" id="bookingName" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" id="bookingEmail" name="email" required />
+        </label>
+        <label>
+          Date
+          <input type="date" id="bookingDate" name="date" required />
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Confirm Booking</button>
+          <button type="button" id="cancelBooking" class="btn-outline">Cancel</button>
+        </div>
+      </form>
+      <div id="bookingMessage" class="booking-message" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
