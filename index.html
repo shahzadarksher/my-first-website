@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Explore — Travel Agency</title>
+  <meta name="description" content="Flexible tours, local experiences, and small-group adventures." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Explore</h1>
+      <button id="navToggle" class="btn-outline" aria-label="Toggle navigation">☰</button>
+      <nav>
+        <ul class="nav" id="mainNav">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#tours">Tours</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="bookNow" class="btn-primary">Book</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h2>Discover local experiences</h2>
+          <p>Flexible day trips, cultural visits, and outdoor adventures tailored to your needs.</p>
+          <div class="hero-actions">
+            <a href="#tours" class="btn-secondary">Browse Tours</a>
+            <a href="#contact" class="btn-outline">Contact Us</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <figure>
+            <img src="assets/yasin_bridge.jpg" alt="Noh Bridge, Yasin Valley" />
+            <figcaption class="caption">Noh Bridge, Yasin Valley — image source: Wikimedia Commons</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="tours" class="container tours-section">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;">
+        <h3>Featured Tours</h3>
+        <input id="tourSearch" type="search" placeholder="Search tours" aria-label="Search tours" style="padding:.5rem;border-radius:8px;border:1px solid #e6e9ee;max-width:260px;" />
+      </div>
+      <p class="lead">Handpicked experiences</p>
+      <div class="tours-grid" id="toursGrid">
+        <article class="tour-card" data-title="Heritage Walk">
+          <img src="assets/yasin_valley.jpg" alt="Yasin Valley" />
+          <p class="caption">Yasin Valley — image source: visitgilgitbaltistan.gov.pk</p>
+          <h4>Heritage Walk</h4>
+          <p>2–3 hours visiting historical sites and local markets.</p>
+          <div class="card-footer">
+            <span class="price">From $15</span>
+            <button class="btn-primary btn-small book-inline" data-tour="Heritage Walk">Book</button>
+          </div>
+        </article>
+
+        <article class="tour-card" data-title="Nature Trail">
+          <img src="assets/yasin_valley2.jpg" alt="Yasin Valley (2)" />
+          <p class="caption">Yasin Valley — image source: realpakistan.com.pk</p>
+          <h4>Nature Trail</h4>
+          <p>Half-day hike through scenic trails and viewpoints.</p>
+          <div class="card-footer">
+            <span class="price">From $20</span>
+            <button class="btn-primary btn-small book-inline" data-tour="Nature Trail">Book</button>
+          </div>
+        </article>
+
+        <article class="tour-card" data-title="Cultural Experience">
+          <img src="assets/tour3.svg" alt="Cultural experience" />
+          <h4>Cultural Experience</h4>
+          <p>Local food tasting and artisan visits.</p>
+          <div class="card-footer">
+            <span class="price">From $25</span>
+            <button class="btn-primary btn-small book-inline" data-tour="Cultural Experience">Book</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="container about-section">
+      <h3>About</h3>
+      <p>We're a small team offering curated tours and trusted local guides. We focus on sustainable tourism and authentic experiences.</p>
+      <ul class="features">
+        <li>Local guides</li>
+        <li>Small groups</li>
+        <li>Custom itineraries</li>
+      </ul>
+    </section>
+
+    <section class="container">
+      <h3>Testimonials</h3>
+      <div class="testimonials">
+        <div class="testimonial">“Amazing trip — highly recommended.” — A. Guest</div>
+        <div class="testimonial">“Well organized and friendly guides.” — B. Traveler</div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h3>FAQ</h3>
+      <div class="faq">
+        <div class="faq-item"><strong>What's included?</strong><div>Guide, bottled water, local transport for tours that require it.</div></div>
+        <div class="faq-item"><strong>Cancellation policy?</strong><div>Full refund 48 hours before the tour.</div></div>
+      </div>
+    </section>
+
+    <section id="contact" class="container contact-section">
+      <h3>Contact & Booking</h3>
+      <p>Have questions or want a custom plan? Use the booking modal or send us a message.</p>
+
+      <form id="contactForm" class="contact-form" novalidate>
+        <label>
+          Your name
+          <input type="text" name="name" id="name" required />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" id="email" required />
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" id="message" rows="4"></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Send Message</button>
+          <button type="button" id="clearForm" class="btn-outline">Clear</button>
+        </div>
+      </form>
+
+      <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:shahzadark009@gmail.com">shahzadark009@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+923129797925">+92 312 9797925</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Explore — Travel Agency</p>
+      <p class="small">Follow us: <a href="#">Facebook</a> · <a href="#">Instagram</a></p>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="closeModal" class="modal-close" aria-label="Close">×</button>
+      <h3 id="modalTitle">Book a Tour</h3>
+      <form id="bookingForm" class="booking-form" novalidate>
+        <label>
+          Tour
+          <input type="text" id="bookingTour" name="tour" readonly />
+        </label>
+        <label>
+          Name
+          <input type="text" id="bookingName" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" id="bookingEmail" name="email" required />
+        </label>
+        <label>
+          Date
+          <input type="date" id="bookingDate" name="date" required />
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Confirm Booking</button>
+          <button type="button" id="cancelBooking" class="btn-outline">Cancel</button>
+        </div>
+      </form>
+      <div id="bookingMessage" class="booking-message" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

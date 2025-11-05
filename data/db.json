@@ -1,0 +1,13 @@
+{
+  "bookings": [
+    {
+      "id": 1762380353880,
+      "tour": "Demo",
+      "name": "Alice",
+      "email": "alice@example.com",
+      "date": "2025-11-10",
+      "created": "2025-11-05T22:05:53.880Z"
+    }
+  ],
+  "contacts": []
+}

@@ -1,0 +1,83 @@
+:root{
+  --primary:#0b6efd;
+  --accent:#ff7a59;
+  --muted:#6b7280;
+  --bg:#f8fafc;
+  --max-width:1100px;
+  --radius:8px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:#111827;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);line-height:1.5}
+.container{max-width:var(--max-width);margin:0 auto;padding:1rem}
+
+.site-header{background:#fff;border-bottom:1px solid #e6e9ee;position:sticky;top:0;z-index:20}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{font-size:1.2rem;margin:0;color:var(--primary)}
+.nav{list-style:none;padding:0;margin:0;display:flex;gap:1rem}
+.nav a{text-decoration:none;color:var(--muted);font-weight:600}
+.btn-primary{background:var(--primary);color:#fff;border:none;padding:.6rem .9rem;border-radius:6px;cursor:pointer}
+.btn-secondary{background:var(--accent);color:#fff;padding:.6rem .9rem;border-radius:6px;text-decoration:none}
+.btn-outline{background:transparent;border:1px solid #d1d5db;padding:.5rem .8rem;border-radius:6px}
+.btn-small{padding:.4rem .6rem;font-size:.9rem}
+
+.hero{padding:2.5rem 0;background:linear-gradient(90deg,rgba(11,110,253,0.05),transparent)}
+.hero-content{display:flex;gap:2rem;align-items:center}
+.hero-text{flex:1}
+.hero-image{flex:1}
+.hero-image img{width:100%;border-radius:12px;display:block}
+
+/* Tours */
+.tours-section{padding:2rem 0}
+.tours-toolbar{display:flex;gap:0.5rem;align-items:center;margin-top:0.5rem}
+.tours-toolbar input[type="search"]{flex:1;padding:.5rem;border-radius:6px;border:1px solid #e6e9ee}
+.tours-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
+.tour-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(2,6,23,0.05);display:flex;flex-direction:column}
+
+.tours-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
+.tour-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(2,6,23,0.05);display:flex;flex-direction:column}
+.tour-card img{width:100%;height:150px;object-fit:cover}
+.tour-card h4{margin:0.75rem 1rem}
+.tour-card p{margin:0 1rem 1rem;color:var(--muted)}
+.card-footer{margin-top:auto;padding:1rem;display:flex;justify-content:space-between;align-items:center}
+
+/* About / Contact */
+.about-section, .contact-section{padding:2rem 0}
+.features{display:flex;gap:1rem;list-style:none;padding:0;margin-top:0.5rem}
+.features li{background:#fff;padding:0.6rem 0.8rem;border-radius:8px;box-shadow:0 1px 4px rgba(2,6,23,0.04)}
+
+/* Forms */
+.contact-form, .booking-form{background:#fff;padding:1rem;border-radius:10px;box-shadow:0 2px 8px rgba(2,6,23,0.04);max-width:700px}
+.contact-form label, .booking-form label{display:block;margin-bottom:0.6rem}
+.contact-form input, .contact-form textarea, .booking-form input{width:100%;padding:0.6rem;border:1px solid #e6e9ee;border-radius:8px}
+
+.caption{font-size:.9rem;color:var(--muted);margin:0.5rem 1rem}
+
+/* Testimonials */
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.testimonial{background:#fff;padding:1rem;border-radius:10px;box-shadow:0 1px 6px rgba(2,6,23,0.05)}
+
+/* FAQ */
+.faq{margin-top:1rem}
+.faq-item{background:#fff;padding:0.8rem;border-radius:8px;margin-bottom:0.6rem}
+
+/* Footer */
+.site-footer{padding:1.2rem 0;background:#fff;border-top:1px solid #e6e9ee;margin-top:2rem}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(3,7,18,0.4);padding:1rem}
+.hidden{display:none}
+.modal-content{background:#fff;padding:1rem;border-radius:10px;max-width:520px;width:100%;position:relative}
+.modal-close{position:absolute;right:8px;top:8px;border:none;background:transparent;font-size:1.4rem;cursor:pointer}
+.booking-message{margin-top:.8rem;color:green;font-weight:600}
+
+/* Responsive */
+@media (max-width:800px){
+  .hero-content{flex-direction:column}
+  .nav{display:none}
+  .header-inner{gap:.6rem}
+  .nav.open{display:flex;flex-direction:column;background:#fff;padding:0.8rem;border-radius:8px;position:absolute;top:64px;right:16px;box-shadow:0 6px 20px rgba(2,6,23,0.08)}
+}
