@@ -102,9 +102,17 @@
           <h4>Heritage Walk</h4>
           <div class="stars">★★★★★</div>
           <p>2–3 hours visiting historical sites and local markets.</p>
+          <div class="tour-meta">
+            <span class="meta-item">&#9201; 2-3 hours</span>
+            <span class="meta-item">&#128101; Max 10</span>
+            <span class="meta-item">&#128205; Yasin Valley</span>
+          </div>
           <div class="card-footer">
             <span class="price" data-price-usd="15">From $15</span>
-            <button class="btn-primary btn-small book-inline" data-tour="Heritage Walk">Book</button>
+            <div style="display:flex;gap:0.4rem;">
+              <button class="btn-outline btn-small tour-details" data-tour="Heritage Walk" data-duration="2-3 hours" data-group="Max 10" data-location="Yasin Valley" data-description="Explore ancient trade routes, visit centuries-old mosques, browse local bazaars for handmade crafts, and taste traditional Wakhi cuisine. Includes a guided visit to the historic Baltit Fort area." data-includes="Guide, Bottled water, Snacks, Entrance fees" data-excludes="Personal expenses, Travel insurance">Details</button>
+              <button class="btn-primary btn-small book-inline" data-tour="Heritage Walk">Book</button>
+            </div>
           </div>
         </article>
 
@@ -118,9 +126,17 @@
           <h4>Nature Trail</h4>
           <div class="stars">★★★★★</div>
           <p>Half-day hike through scenic trails and viewpoints.</p>
+          <div class="tour-meta">
+            <span class="meta-item">&#9201; 4-5 hours</span>
+            <span class="meta-item">&#128101; Max 8</span>
+            <span class="meta-item">&#128205; Mountain Trail</span>
+          </div>
           <div class="card-footer">
             <span class="price" data-price-usd="20">From $20</span>
-            <button class="btn-primary btn-small book-inline" data-tour="Nature Trail">Book</button>
+            <div style="display:flex;gap:0.4rem;">
+              <button class="btn-outline btn-small tour-details" data-tour="Nature Trail" data-duration="4-5 hours" data-group="Max 8" data-location="Mountain Trail" data-description="Trek through lush valleys, cross crystal-clear streams, and reach breathtaking viewpoints overlooking the Karakoram range. Perfect for fitness enthusiasts and nature lovers." data-includes="Guide, Trekking poles, Lunch, First aid kit" data-excludes="Hiking boots, Personal gear">Details</button>
+              <button class="btn-primary btn-small book-inline" data-tour="Nature Trail">Book</button>
+            </div>
           </div>
         </article>
 
@@ -133,9 +149,17 @@
           <h4>Cultural Experience</h4>
           <div class="stars">★★★★☆</div>
           <p>Local food tasting and artisan visits.</p>
+          <div class="tour-meta">
+            <span class="meta-item">&#9201; 3-4 hours</span>
+            <span class="meta-item">&#128101; Max 12</span>
+            <span class="meta-item">&#128205; Local Village</span>
+          </div>
           <div class="card-footer">
             <span class="price" data-price-usd="25">From $25</span>
-            <button class="btn-primary btn-small book-inline" data-tour="Cultural Experience">Book</button>
+            <div style="display:flex;gap:0.4rem;">
+              <button class="btn-outline btn-small tour-details" data-tour="Cultural Experience" data-duration="3-4 hours" data-group="Max 12" data-location="Local Village" data-description="Immerse yourself in local traditions. Visit artisan workshops, learn traditional weaving, taste authentic Wakhi dishes, and participate in a folk music session with local musicians." data-includes="Guide, All food tastings, Workshop materials, Transport" data-excludes="Souvenirs, Optional donations">Details</button>
+              <button class="btn-primary btn-small book-inline" data-tour="Cultural Experience">Book</button>
+            </div>
           </div>
         </article>
       </div>
@@ -267,6 +291,55 @@
     <div class="lightbox-content">
       <button id="lightboxClose" class="lightbox-close" aria-label="Close">&times;</button>
       <img id="lightboxImg" src="" alt="" />
+    </div>
+  </div>
+
+  <div id="tourModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content modal-lg" role="dialog" aria-modal="true" aria-labelledby="tourModalTitle">
+      <button id="tourModalClose" class="modal-close" aria-label="Close">&times;</button>
+      <h3 id="tourModalTitle">Tour Details</h3>
+      <div class="tour-detail-content">
+        <div class="tour-detail-grid">
+          <div class="tour-detail-info">
+            <h4>Tour Overview</h4>
+            <p id="tourDetailDescription"></p>
+            <div class="tour-detail-meta">
+              <div class="detail-meta-item">
+                <span class="detail-icon">&#9201;</span>
+                <div>
+                  <strong>Duration</strong>
+                  <span id="tourDetailDuration"></span>
+                </div>
+              </div>
+              <div class="detail-meta-item">
+                <span class="detail-icon">&#128101;</span>
+                <div>
+                  <strong>Group Size</strong>
+                  <span id="tourDetailGroup"></span>
+                </div>
+              </div>
+              <div class="detail-meta-item">
+                <span class="detail-icon">&#128205;</span>
+                <div>
+                  <strong>Location</strong>
+                  <span id="tourDetailLocation"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tour-detail-extras">
+            <div class="tour-detail-box includes">
+              <h4>&#10003; What's Included</h4>
+              <ul id="tourDetailIncludes"></ul>
+            </div>
+            <div class="tour-detail-box excludes">
+              <h4>&#10007; Not Included</h4>
+              <ul id="tourDetailExcludes"></ul>
+            </div>
+            <button id="bookFromDetail" class="btn-primary" style="width:100%;margin-top:1rem;">Book This Tour</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

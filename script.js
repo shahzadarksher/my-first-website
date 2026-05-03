@@ -141,6 +141,45 @@ document.addEventListener('DOMContentLoaded', () => {
   modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal?.classList.contains('hidden')) closeModal(); });
 
+  // Tour detail modal
+  const tourModal = document.getElementById('tourModal');
+  const tourModalTitle = document.getElementById('tourModalTitle');
+  const tourModalClose = document.getElementById('tourModalClose');
+  const bookFromDetail = document.getElementById('bookFromDetail');
+  function openTourDetail(btn) {
+    document.getElementById('tourDetailDescription').textContent = btn.dataset.description || '';
+    document.getElementById('tourDetailDuration').textContent = btn.dataset.duration || '';
+    document.getElementById('tourDetailGroup').textContent = btn.dataset.group || '';
+    document.getElementById('tourDetailLocation').textContent = btn.dataset.location || '';
+    const includesEl = document.getElementById('tourDetailIncludes');
+    const excludesEl = document.getElementById('tourDetailExcludes');
+    includesEl.innerHTML = '';
+    excludesEl.innerHTML = '';
+    (btn.dataset.includes || '').split(',').forEach(item => {
+      if (item.trim()) { const li = document.createElement('li'); li.textContent = item.trim(); includesEl.appendChild(li); }
+    });
+    (btn.dataset.excludes || '').split(',').forEach(item => {
+      if (item.trim()) { const li = document.createElement('li'); li.textContent = item.trim(); excludesEl.appendChild(li); }
+    });
+    tourModalTitle.textContent = btn.dataset.tour + ' — Details';
+    tourModal?.classList.remove('hidden');
+    tourModal?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeTourModal() {
+    tourModal?.classList.add('hidden');
+    tourModal?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  tourModalClose?.addEventListener('click', closeTourModal);
+  tourModal?.addEventListener('click', (e) => { if (e.target === tourModal) closeTourModal(); });
+  bookFromDetail?.addEventListener('click', () => {
+    closeTourModal();
+    setTimeout(() => openModal(tourModalTitle.textContent.replace(' — Details', '')), 200);
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !tourModal?.classList.contains('hidden')) closeTourModal(); });
+  document.querySelectorAll('.tour-details').forEach(btn => btn.addEventListener('click', () => openTourDetail(btn)));
+
   bookingForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const submitBtn = e.target.querySelector('.btn-with-spinner');
