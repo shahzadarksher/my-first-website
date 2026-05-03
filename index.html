@@ -10,7 +10,7 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <h1 class="logo">Warshigoom Travels</h1>
+      <h1 class="logo">✈ Warshigoom Travels</h1>
       <button id="navToggle" class="btn-outline" aria-label="Toggle navigation">&#9776;</button>
       <nav>
         <ul class="nav" id="mainNav">
@@ -21,6 +21,7 @@
         </ul>
       </nav>
       <button id="bookNow" class="btn-primary">Book a Tour</button>
+      <button id="themeToggle" class="btn-outline theme-btn" aria-label="Toggle dark mode">&#9790;</button>
     </div>
   </header>
 
@@ -37,24 +38,52 @@
         </div>
         <div class="hero-image">
           <figure>
-            <img src="assets/yasin_bridge.jpg" alt="Noh Bridge, Yasin Valley" />
+            <img src="assets/yasin_bridge.jpg" alt="Noh Bridge, Yasin Valley" class="lightbox-img" />
             <figcaption class="caption">Noh Bridge, Yasin Valley — image source: Wikimedia Commons</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
+    <section class="container stats-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number" data-target="500">0</span>
+          <span class="stat-label">Happy Travelers</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="50">0</span>
+          <span class="stat-label">Tour Packages</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="12">0</span>
+          <span class="stat-label">Local Guides</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="4.9">0</span>
+          <span class="stat-label">Average Rating</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <section id="tours" class="container tours-section">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
         <h3>Featured Tours</h3>
         <input id="tourSearch" type="search" placeholder="Search tours" aria-label="Search tours" style="padding:.5rem;border-radius:8px;border:1px solid #e6e9ee;max-width:260px;" />
       </div>
       <p class="lead">Handpicked experiences</p>
       <div class="tours-grid" id="toursGrid">
-        <article class="tour-card" data-title="Heritage Walk">
-          <img src="assets/yasin_valley.jpg" alt="Yasin Valley" />
+        <article class="tour-card" data-title="Heritage Walk" data-price="15">
+          <img src="assets/yasin_valley.jpg" alt="Yasin Valley" class="lightbox-img" />
+          <div class="card-tags">
+            <span class="tag tag-history">History</span>
+            <span class="tag tag-cultural">Cultural</span>
+          </div>
           <p class="caption">Yasin Valley — image source: visitgilgitbaltistan.gov.pk</p>
           <h4>Heritage Walk</h4>
+          <div class="stars">★★★★★</div>
           <p>2–3 hours visiting historical sites and local markets.</p>
           <div class="card-footer">
             <span class="price">From $15</span>
@@ -62,10 +91,15 @@
           </div>
         </article>
 
-        <article class="tour-card" data-title="Nature Trail">
-          <img src="assets/yasin_valley2.jpg" alt="Yasin Valley (2)" />
+        <article class="tour-card" data-title="Nature Trail" data-price="20">
+          <img src="assets/yasin_valley2.jpg" alt="Yasin Valley (2)" class="lightbox-img" />
+          <div class="card-tags">
+            <span class="tag tag-nature">Nature</span>
+            <span class="tag tag-hiking">Hiking</span>
+          </div>
           <p class="caption">Yasin Valley — image source: realpakistan.com.pk</p>
           <h4>Nature Trail</h4>
+          <div class="stars">★★★★★</div>
           <p>Half-day hike through scenic trails and viewpoints.</p>
           <div class="card-footer">
             <span class="price">From $20</span>
@@ -73,9 +107,14 @@
           </div>
         </article>
 
-        <article class="tour-card" data-title="Cultural Experience">
-          <img src="assets/tour3.svg" alt="Cultural experience" />
+        <article class="tour-card" data-title="Cultural Experience" data-price="25">
+          <img src="assets/tour3.svg" alt="Cultural experience" class="lightbox-img" />
+          <div class="card-tags">
+            <span class="tag tag-food">Food</span>
+            <span class="tag tag-art">Artisan</span>
+          </div>
           <h4>Cultural Experience</h4>
+          <div class="stars">★★★★☆</div>
           <p>Local food tasting and artisan visits.</p>
           <div class="card-footer">
             <span class="price">From $25</span>
@@ -134,7 +173,10 @@
         <input type="text" id="website" name="website" style="display:none" tabindex="-1" autocomplete="off" />
 
         <div class="form-actions">
-          <button type="submit" class="btn-primary">Send Message</button>
+          <button type="submit" class="btn-primary btn-with-spinner">
+            <span class="spinner hidden"></span>
+            <span class="btn-text">Send Message</span>
+          </button>
           <button type="button" id="clearForm" class="btn-outline">Clear</button>
         </div>
       </form>
@@ -142,6 +184,20 @@
       <div class="contact-details">
         <p><strong>Email:</strong> <a href="mailto:shahzadark009@gmail.com">shahzadark009@gmail.com</a></p>
         <p><strong>Phone:</strong> <a href="tel:+923129797925">+92 312 9797925</a></p>
+      </div>
+    </section>
+
+    <section class="container newsletter-section">
+      <div class="newsletter-content">
+        <h3>Stay Updated</h3>
+        <p>Get new tour packages and travel tips delivered to your inbox.</p>
+        <form id="newsletterForm" class="newsletter-form" novalidate>
+          <input type="email" id="newsletterEmail" placeholder="Your email address" required />
+          <button type="submit" class="btn-primary btn-with-spinner">
+            <span class="spinner hidden"></span>
+            <span class="btn-text">Subscribe</span>
+          </button>
+        </form>
       </div>
     </section>
   </main>
@@ -174,14 +230,34 @@
           Date
           <input type="date" id="bookingDate" name="date" required />
         </label>
+        <label>
+          Guests
+          <input type="number" id="bookingGuests" name="guests" min="1" max="20" value="1" />
+        </label>
         <div class="form-actions">
-          <button type="submit" class="btn-primary">Confirm Booking</button>
+          <button type="submit" class="btn-primary btn-with-spinner">
+            <span class="spinner hidden"></span>
+            <span class="btn-text">Confirm Booking</span>
+          </button>
           <button type="button" id="cancelBooking" class="btn-outline">Cancel</button>
         </div>
       </form>
       <div id="bookingMessage" class="booking-message" aria-live="polite"></div>
     </div>
   </div>
+
+  <div id="lightbox" class="lightbox hidden" aria-hidden="true">
+    <div class="lightbox-content">
+      <button id="lightboxClose" class="lightbox-close" aria-label="Close">&times;</button>
+      <img id="lightboxImg" src="" alt="" />
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <button id="backToTop" class="back-to-top hidden" aria-label="Back to top">&#8593;</button>
+
+  <a href="https://wa.me/923129797925" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="Chat on WhatsApp">💬</a>
 
   <script src="script.js"></script>
 </body>

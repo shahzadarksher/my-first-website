@@ -58,7 +58,7 @@
       const cres = await fetchJson('/api/contacts');
       const bookingsEl = document.getElementById('bookings');
       const contactsEl = document.getElementById('contacts');
-      if(bres.success){ renderTable(bookingsEl, bres.bookings || [], ['Name','Email','Tour','Date','Created']) }
+      if(bres.success){ renderTable(bookingsEl, bres.bookings || [], ['Name','Email','Tour','Date','Guests','Created']) }
       else bookingsEl.innerHTML = '<p class="muted">Failed to load bookings: '+(bres.error||'')+'</p>';
       if(cres.success){ renderTable(contactsEl, cres.contacts || [], ['Name','Email','Message','Created']) }
       else contactsEl.innerHTML = '<p class="muted">Failed to load contacts: '+(cres.error||'')+'</p>';

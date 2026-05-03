@@ -21,7 +21,7 @@ app.post('/api/book', async (req, res) => {
   try {
     await db.read();
     db.data = db.data || { bookings: [], contacts: [] };
-    const record = { id: Date.now(), tour: payload.tour || '', name: payload.name, email: payload.email, date: payload.date, created: new Date().toISOString() };
+    const record = { id: Date.now(), tour: payload.tour || '', name: payload.name, email: payload.email, date: payload.date, guests: payload.guests || 1, created: new Date().toISOString() };
     db.data.bookings.push(record);
     await db.write();
     res.json({ success: true, record });
