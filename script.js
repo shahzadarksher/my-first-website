@@ -21,6 +21,50 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
   navToggle?.addEventListener('click', () => mainNav?.classList.toggle('open'));
+  // Close mobile menu on nav link click
+  mainNav?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => mainNav?.classList.remove('open'));
+  });
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav a');
+  function setActiveNav() {
+    const scrollY = window.scrollY + 120;
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+      if (scrollY >= top && scrollY < top + height) {
+        navLinks.forEach(a => {
+          a.classList.remove('active');
+          if (a.getAttribute('href') === `#${id}`) a.classList.add('active');
+        });
+      }
+    });
+  }
+  window.addEventListener('scroll', setActiveNav);
+
+  // Set minimum date for booking
+  const bookingDate = document.getElementById('bookingDate');
+  if (bookingDate) {
+    const today = new Date().toISOString().split('T')[0];
+    bookingDate.setAttribute('min', today);
+  }
+
+  // Scroll reveal animations
+  const revealElements = document.querySelectorAll('.tour-card, .stat-card, .testimonial, .faq-item, .about-section, .contact-section, .newsletter-section, .stats-section');
+  revealElements.forEach(el => el.classList.add('reveal'));
+  function revealOnScroll() {
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.88) {
+        el.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
 
   // Header scroll shadow
   const header = document.querySelector('.site-header');
@@ -240,12 +284,25 @@ document.addEventListener('DOMContentLoaded', () => {
   function filterTours() {
     const q = tourSearch?.value.trim().toLowerCase() || '';
     const cards = toursGrid?.querySelectorAll('.tour-card') || [];
+    let visible = 0;
     cards.forEach(card => {
       const title = (card.dataset.title || '').toLowerCase();
       const desc = (card.querySelector('p')?.textContent || '').toLowerCase();
       const matchesQuery = !q || title.includes(q) || desc.includes(q);
       card.style.display = matchesQuery ? '' : 'none';
+      if (matchesQuery) visible++;
     });
+    let noResults = toursGrid?.querySelector('.no-results');
+    if (visible === 0 && q) {
+      if (!noResults) {
+        noResults = document.createElement('p');
+        noResults.className = 'no-results';
+        noResults.textContent = `No tours found for "${q}"`;
+        toursGrid?.appendChild(noResults);
+      }
+    } else if (noResults) {
+      noResults.remove();
+    }
   }
   tourSearch?.addEventListener('input', filterTours);
 
