@@ -80,7 +80,15 @@
     <section id="tours" class="container tours-section">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
         <h3>Featured Tours</h3>
-        <input id="tourSearch" type="search" placeholder="Search tours" aria-label="Search tours" class="search-input" />
+        <div style="display:flex;gap:0.5rem;align-items:center;">
+          <select id="currencySelector" class="currency-select" aria-label="Select currency">
+            <option value="USD" selected>USD ($)</option>
+            <option value="PKR">PKR (Rs)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+          </select>
+          <input id="tourSearch" type="search" placeholder="Search tours" aria-label="Search tours" class="search-input" />
+        </div>
       </div>
       <p class="lead">Handpicked experiences</p>
       <div class="tours-grid" id="toursGrid">
@@ -95,7 +103,7 @@
           <div class="stars">★★★★★</div>
           <p>2–3 hours visiting historical sites and local markets.</p>
           <div class="card-footer">
-            <span class="price">From $15</span>
+            <span class="price" data-price-usd="15">From $15</span>
             <button class="btn-primary btn-small book-inline" data-tour="Heritage Walk">Book</button>
           </div>
         </article>
@@ -111,7 +119,7 @@
           <div class="stars">★★★★★</div>
           <p>Half-day hike through scenic trails and viewpoints.</p>
           <div class="card-footer">
-            <span class="price">From $20</span>
+            <span class="price" data-price-usd="20">From $20</span>
             <button class="btn-primary btn-small book-inline" data-tour="Nature Trail">Book</button>
           </div>
         </article>
@@ -126,7 +134,7 @@
           <div class="stars">★★★★☆</div>
           <p>Local food tasting and artisan visits.</p>
           <div class="card-footer">
-            <span class="price">From $25</span>
+            <span class="price" data-price-usd="25">From $25</span>
             <button class="btn-primary btn-small book-inline" data-tour="Cultural Experience">Book</button>
           </div>
         </article>

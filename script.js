@@ -306,6 +306,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   tourSearch?.addEventListener('input', filterTours);
 
+  // Currency converter
+  const rates = { USD: 1, PKR: 278, EUR: 0.92, GBP: 0.79 };
+  const symbols = { USD: '$', PKR: 'Rs ', EUR: '€', GBP: '£' };
+  const currencySelector = document.getElementById('currencySelector');
+  function updatePrices() {
+    const currency = currencySelector?.value || 'USD';
+    const rate = rates[currency];
+    const symbol = symbols[currency];
+    document.querySelectorAll('.price[data-price-usd]').forEach(el => {
+      const usd = parseFloat(el.dataset.priceUsd);
+      const converted = Math.round(usd * rate);
+      el.textContent = `From ${symbol}${converted}`;
+    });
+  }
+  currencySelector?.addEventListener('change', () => {
+    localStorage.setItem('currency', currencySelector?.value || 'USD');
+    updatePrices();
+  });
+  const savedCurrency = localStorage.getItem('currency');
+  if (savedCurrency && currencySelector) {
+    currencySelector.value = savedCurrency;
+    updatePrices();
+  }
+
   // Stats counter animation
   const statNumbers = document.querySelectorAll('.stat-number');
   let statsAnimated = false;
