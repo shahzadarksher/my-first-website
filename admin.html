@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin - Bookings & Contacts</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:1rem}
+    h1{margin-bottom:.5rem}
+    .box{border:1px solid #ddd;padding:1rem;margin-bottom:1rem;border-radius:6px}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:.4rem;border:1px solid #eee;text-align:left;font-size:.95rem}
+    .muted{color:#666;font-size:.9rem}
+  </style>
+</head>
+<body>
+  <h1>Admin — Bookings & Contacts (dev only)</h1>
+  <p class="muted">This page is for local development. Do not expose in production.</p>
+
+  <div class="box">
+    <h2>Recent Bookings</h2>
+    <div id="bookings">Loading…</div>
+  </div>
+
+  <div class="box">
+    <h2>Recent Contacts</h2>
+    <div id="contacts">Loading…</div>
+  </div>
+
+  <script>
+    async function fetchJson(url){
+      try{const r=await fetch(url);if(!r.ok) throw new Error('fetch failed');return await r.json()}catch(e){return {success:false,error:e.message}}}
+
+    function renderTable(container, rows, cols){
+      if(!rows || rows.length===0){ container.innerHTML = '<p class="muted">No records</p>'; return }
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      const tr = document.createElement('tr');
+      cols.forEach(c=>{const th=document.createElement('th');th.textContent=c;tr.appendChild(th)});
+      thead.appendChild(tr);table.appendChild(thead);
+      const tbody = document.createElement('tbody');
+      rows.forEach(r=>{
+        const tr = document.createElement('tr');
+        cols.forEach(c=>{
+          const td = document.createElement('td');
+          td.textContent = r[c.toLowerCase()] ?? '';
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      container.innerHTML = '';
+      container.appendChild(table);
+    }
+
+    (async ()=>{
+      const bres = await fetchJson('/api/bookings');
+      const cres = await fetchJson('/api/contacts');
+      const bookingsEl = document.getElementById('bookings');
+      const contactsEl = document.getElementById('contacts');
+      if(bres.success){ renderTable(bookingsEl, bres.bookings || [], ['Name','Email','Tour','Date','Created']) }
+      else bookingsEl.innerHTML = '<p class="muted">Failed to load bookings: '+(bres.error||'')+'</p>';
+      if(cres.success){ renderTable(contactsEl, cres.contacts || [], ['Name','Email','Message','Created']) }
+      else contactsEl.innerHTML = '<p class="muted">Failed to load contacts: '+(cres.error||'')+'</p>';
+    })();
+  </script>
+</body>
+</html>
