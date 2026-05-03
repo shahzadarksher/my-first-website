@@ -420,6 +420,15 @@ body.dark .modal-close{background:rgba(255,255,255,0.08)}
   .newsletter-form input{min-width:auto}
 }
 
+/* Skip link */
+.skip-link{
+  position:absolute;top:-100%;left:0;
+  padding:0.75rem 1.25rem;background:var(--primary);color:#fff;
+  font-weight:600;z-index:100;border-radius:0 0 8px 0;
+  transition:top var(--transition);
+}
+.skip-link:focus{top:0}
+
 /* Search input */
 .search-input{
   padding:0.55rem 1rem;border-radius:8px;border:1.5px solid var(--border);
@@ -462,8 +471,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 /* Print styles */
 @media print{
-  .site-header,.whatsapp-btn,.back-to-top,#themeToggle,#navToggle,.btn-primary{display:none !important}
+  .site-header,.whatsapp-btn,.back-to-top,#themeToggle,#navToggle,.btn-primary,.tour-card .btn-primary,.newsletter-section,.lightbox{display:none !important}
   body{background:#fff;color:#000}
   .hero{padding:1rem 0}
   a{text-decoration:underline}
+  .container{max-width:100%}
 }
